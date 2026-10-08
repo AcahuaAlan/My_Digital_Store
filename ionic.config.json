@@ -1,0 +1,7 @@
+{
+  "name": "My_Digital_Store",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
