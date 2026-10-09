@@ -1,0 +1,286 @@
+:host {
+  display: block;
+  background-color: #faf6ee;
+  min-height: 100vh;
+}
+
+.payment-content {
+  --background: #faf6ee;
+  background-color: #faf6ee;
+}
+
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 10px 0 40px 0;
+  background-color: #faf6ee;
+}
+
+/* Contenedor adaptado a 420px sobre fondo crema */
+.payment-card-container {
+  width: 100%;
+  max-width: 420px;
+  background-color: #faf6ee;
+  border-radius: 0;
+  padding: 20px 18px 35px 18px;
+  box-shadow: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Encabezado */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  .back-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    ion-icon {
+      font-size: 1.4rem;
+      color: #000000;
+    }
+  }
+
+  .header-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 0;
+  }
+}
+
+.section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #000000;
+  margin: 10px 0 12px 0;
+}
+
+/* Tarjeta Registrada */
+.card-item-box {
+  border: 1px solid #e2e2e2;
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
+  margin-bottom: 24px;
+
+  .card-brand-logo {
+    width: 48px;
+    height: 32px;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .visa-text {
+      font-weight: 900;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #1a1f71;
+    }
+  }
+
+  .card-details {
+    flex: 1;
+
+    .card-name {
+      display: block;
+      font-size: 0.95rem;
+      color: #000000;
+      font-weight: 700;
+    }
+
+    .card-number {
+      font-size: 0.78rem;
+      color: #555555;
+    }
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 8px;
+
+    .action-btn {
+      background: transparent;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+
+      ion-icon {
+        font-size: 18px;
+        color: #000000;
+      }
+    }
+  }
+}
+
+/* Subtítulo */
+.sub-heading {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/* Opción de Pago (Efectivo) */
+.payment-option-card {
+  border: 1px solid #e2e2e2;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
+  margin-bottom: 16px;
+
+  .option-icon-box {
+    ion-icon {
+      font-size: 24px;
+      color: #000000;
+    }
+  }
+
+  .option-details {
+    flex: 1;
+
+    .option-title {
+      display: block;
+      font-size: 0.92rem;
+      color: #3b2412;
+      font-weight: 700;
+    }
+
+    .option-sub {
+      font-size: 0.75rem;
+      color: #8c5b36;
+    }
+  }
+
+  .option-radio {
+    input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #3b2412;
+      cursor: pointer;
+    }
+  }
+}
+
+/* Banner de Comercio Seguro */
+.secure-banner {
+  border: 1px solid #e2e2e2;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: #ffffff;
+  margin-bottom: 24px;
+
+  .shield-icon-box {
+    width: 36px;
+    height: 36px;
+    background-color: #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    ion-icon {
+      font-size: 18px;
+      color: #ffffff;
+    }
+  }
+
+  .banner-text {
+    flex: 1;
+
+    strong {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #3b2412;
+      margin-bottom: 2px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.72rem;
+      color: #8c5b36;
+      line-height: 1.25;
+    }
+  }
+}
+
+/* Botones principales en café oscuro */
+.actions-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-outline-action {
+  width: 100%;
+  max-width: 280px;
+  height: 44px;
+  background-color: #3b2412;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+
+  ion-icon {
+    font-size: 1.2rem;
+    color: #ffffff;
+  }
+
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+.btn-outline-cancel {
+  width: 100%;
+  max-width: 220px;
+  height: 42px;
+  background-color: #3b2412;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:active {
+    opacity: 0.9;
+  }
+}

@@ -1,13 +1,73 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>metodo-pago</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="payment-content">
+  <div class="page-wrapper">
+    <div class="payment-card-container">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">metodo-pago</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      <!-- Encabezado -->
+      <div class="card-header">
+        <button class="back-btn" (click)="regresar()">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </button>
+        <h2 class="header-title">Método de pago</h2>
+      </div>
+
+      <!-- Sección Tarjeta Registrada -->
+      <h3 class="section-title">Tarjeta de registrada</h3>
+      
+      <div class="card-item-box">
+        <div class="card-brand-logo">
+          <!-- Texto formateado estilo Visa o puedes usar una imagen -->
+          <span class="visa-text">VISA</span>
+        </div>
+        <div class="card-details">
+          <strong class="card-name">Visa Débito</strong>
+          <span class="card-number">Terminada en •••• 1094</span>
+        </div>
+        <div class="card-actions">
+          <button class="action-btn"><ion-icon name="pencil-outline"></ion-icon></button>
+          <button class="action-btn"><ion-icon name="trash-outline"></ion-icon></button>
+        </div>
+      </div>
+
+      <!-- Sección Otros Métodos de Pago -->
+      <span class="sub-heading">OTROS MÉTODOS DE PAGO</span>
+
+      <!-- Opción Efectivo contra entrega -->
+      <div class="payment-option-card">
+        <div class="option-icon-box">
+          <ion-icon name="cash-outline"></ion-icon>
+        </div>
+        <div class="option-details">
+          <strong class="option-title">Efectivo contra entrega</strong>
+          <span class="option-sub">Paga al recibir en tu puerta</span>
+        </div>
+        <div class="option-radio">
+          <input type="radio" name="metodoPago" value="efectivo" [(ngModel)]="metodoSeleccionado" />
+        </div>
+      </div>
+
+      <!-- Banner Informativo -->
+      <div class="secure-banner">
+        <div class="shield-icon-box">
+          <ion-icon name="shield-checkmark-outline"></ion-icon>
+        </div>
+        <div class="banner-text">
+          <strong>Comercio Seguro My Digital Store</strong>
+          <p>Pagos procesados al instante con comisiones transparentes y conciliación automática.</p>
+        </div>
+      </div>
+
+      <!-- Botones de Acción -->
+      <div class="actions-wrapper">
+        <button class="btn-outline-action" (click)="guardar()">
+          <ion-icon name="save-outline"></ion-icon>
+          <span>Guardar</span>
+        </button>
+
+        <button class="btn-outline-cancel" (click)="regresar()">
+          <span>Cancelar</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
 </ion-content>

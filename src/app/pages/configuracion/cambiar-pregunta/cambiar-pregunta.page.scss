@@ -1,0 +1,257 @@
+:host {
+  display: block;
+  background-color: #faf6ee;
+  min-height: 100vh;
+}
+
+.pregunta-content {
+  --background: #faf6ee;
+  background-color: #faf6ee;
+}
+
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 10px 0 40px 0;
+  background-color: #faf6ee;
+}
+
+/* Contenedor principal alineado al estilo general */
+.pregunta-card-container {
+  width: 100%;
+  max-width: 420px;
+  background-color: #faf6ee;
+  border-radius: 0;
+  padding: 20px 18px 35px 18px;
+  box-shadow: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Encabezado */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+
+  .back-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    ion-icon {
+      font-size: 1.4rem;
+      color: #000000;
+    }
+  }
+
+  .header-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 0;
+  }
+}
+
+/* Banner Informativo */
+.security-banner {
+  border: 1.5px solid #8c5b36;
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+
+  .shield-icon-box {
+    width: 36px;
+    height: 36px;
+    background-color: #dcdcdc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    ion-icon {
+      font-size: 20px;
+      color: #000000;
+    }
+  }
+
+  .banner-text {
+    flex: 1;
+
+    strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #8c5b36;
+      margin-bottom: 2px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.75rem;
+      color: #8c5b36;
+      line-height: 1.3;
+    }
+  }
+}
+
+/* Formulario e Inputs */
+.form-wrapper {
+  width: 100%;
+}
+
+.input-group {
+  margin-bottom: 14px;
+
+  .input-label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 6px;
+  }
+
+  .field-input {
+    width: 100%;
+    height: 42px;
+    background: #ffffff;
+    border: 1.5px solid #737373;
+    border-radius: 10px;
+    padding: 0 14px;
+    font-size: 0.95rem;
+    color: #000000;
+    outline: none;
+    box-sizing: border-box;
+
+    &:focus {
+      border-color: #3b2412;
+    }
+  }
+
+  /* Selector (Dropdown) */
+  .select-box {
+    position: relative;
+    width: 100%;
+
+    .field-select {
+      width: 100%;
+      height: 42px;
+      background: #ffffff;
+      border: 1.5px solid #737373;
+      border-radius: 10px;
+      padding: 0 38px 0 14px;
+      font-size: 0.95rem;
+      color: #000000;
+      outline: none;
+      box-sizing: border-box;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+
+      &:focus {
+        border-color: #3b2412;
+      }
+    }
+
+    .select-icon {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: #000000;
+      pointer-events: none;
+    }
+  }
+
+  /* Nota explicativa */
+  .field-note {
+    margin: 6px 0 0 0;
+    font-size: 0.72rem;
+    color: #4a4a4a;
+    line-height: 1.25;
+  }
+}
+
+/* Enlace olvidaste contraseña */
+.forgot-password {
+  text-align: center;
+  margin-top: 8px;
+
+  a {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #87c3f3;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+/* Botones */
+.actions-wrapper {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-primary-brown {
+  width: 100%;
+  max-width: 280px;
+  height: 48px;
+  background-color: #3b2412;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-align: center;
+
+  ion-icon {
+    font-size: 1.2rem;
+    color: #ffffff;
+    flex-shrink: 0;
+  }
+
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+.btn-secondary-brown {
+  width: 100%;
+  max-width: 220px;
+  height: 42px;
+  background-color: #3b2412;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:active {
+    opacity: 0.9;
+  }
+}

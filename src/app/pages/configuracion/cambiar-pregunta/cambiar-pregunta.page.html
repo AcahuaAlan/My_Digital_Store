@@ -1,13 +1,87 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>cambiar-pregunta</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="pregunta-content">
+  <div class="page-wrapper">
+    <div class="pregunta-card-container">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cambiar-pregunta</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      <!-- Encabezado con flecha de regreso -->
+      <div class="card-header">
+        <button class="back-btn" (click)="regresar()">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </button>
+        <h2 class="header-title">Cambio pregunta de recuperación</h2>
+      </div>
+
+      <!-- Banner Informativo -->
+      <div class="security-banner">
+        <div class="shield-icon-box">
+          <ion-icon name="shield-checkmark-outline"></ion-icon>
+        </div>
+        <div class="banner-text">
+          <strong>Protección de acceso</strong>
+          <p>Esta pregunta te ayudará a recuperar tu cuenta de My Digital Store si olvidas tu contraseña o PIN de acceso.</p>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <div class="form-wrapper">
+
+        <!-- Contraseña actual -->
+        <div class="input-group">
+          <label class="input-label">Contraseña actual</label>
+          <div class="input-box">
+            <input type="password" [(ngModel)]="contrasenaActual" class="field-input" />
+          </div>
+          <div class="forgot-password">
+            <a>¿Olvidaste tu contraseña?</a>
+          </div>
+        </div>
+
+        <!-- Pregunta de recuperación -->
+        <div class="input-group">
+          <label class="input-label">Pregunta de recuperación</label>
+          <div class="select-box">
+            <select [(ngModel)]="preguntaSeleccionada" class="field-select">
+              <option value="" disabled selected>Elige pregunta...</option>
+              <option value="1">¿Nombre de tu primera mascota?</option>
+              <option value="2">¿Ciudad donde naciste?</option>
+              <option value="3">¿Nombre de tu escuela primaria?</option>
+            </select>
+            <ion-icon name="chevron-down-outline" class="select-icon"></ion-icon>
+          </div>
+        </div>
+
+        <!-- Respuesta -->
+        <div class="input-group">
+          <label class="input-label">Respuesta</label>
+          <div class="input-box">
+            <input type="text" [(ngModel)]="respuesta" class="field-input" />
+          </div>
+          <p class="field-note">
+            Como My Digital Store no almacena correos personales, esta pregunta será tu único método para restaurar tu contraseña en caso de olvido.
+          </p>
+        </div>
+
+        <!-- Confirmación de respuesta -->
+        <div class="input-group">
+          <label class="input-label">Confirmación de respuesta</label>
+          <div class="input-box">
+            <input type="text" [(ngModel)]="confirmarRespuesta" class="field-input" />
+          </div>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="actions-wrapper">
+          <button class="btn-primary-brown">
+            <ion-icon name="save-outline"></ion-icon>
+            <span>Guardar pregunta de recuperación</span>
+          </button>
+
+          <button class="btn-secondary-brown" (click)="regresar()">
+            <span>Cancelar</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
 </ion-content>
