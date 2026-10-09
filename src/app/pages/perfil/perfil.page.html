@@ -1,13 +1,89 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>perfil</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
+  <div class="profile-card-container">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">perfil</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <!-- Header con botón de regresar -->
+    <div class="header-bar">
+      <ion-button fill="clear" class="back-btn">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+      <h1 class="page-title">Configuración y cliente</h1>
+    </div>
+
+    <!-- Sección Mi Perfil -->
+    <div class="profile-card header-profile-card" routerLink="/editar-perfil">
+      <div class="card-left">
+        <strong class="card-title">Mi perfil</strong>
+        <span class="card-subtitle">Editar información</span>
+      </div>
+      <div class="card-right">
+        <span class="action-text">Ver perfil</span>
+        <ion-icon name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+      </div>
+    </div>
+
+    <!-- Título de Sección -->
+    <h2 class="section-title">Ajustes de cuenta y seguridad</h2>
+
+    <!-- Opciones / Tarjetas independientes -->
+    <div class="settings-list">
+
+      <!-- Dirección de entrega -->
+      <div class="setting-item-card" routerLink="/direccion">
+        <div class="card-icon-box">
+          <ion-icon name="location-sharp"></ion-icon>
+        </div>
+        <div class="card-content-box">
+          <strong class="card-title">Dirección de entrega</strong>
+          <span class="card-subtitle">Administrar dirección de envió.</span>
+        </div>
+        <ion-icon name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+      </div> 
+
+      <!-- Cambio de contraseña -->
+      <div class="setting-item-card" routerLink="/contrasena">
+        <div class="card-icon-box">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+        </div>
+        <div class="card-content-box">
+          <strong class="card-title">Cambio de contraseña</strong>
+          <span class="card-subtitle">Editar y administrar.</span>
+        </div>
+        <ion-icon name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+      </div>
+
+      <!-- Cambiar pregunta de seguridad -->
+      <div class="setting-item-card" routerLink="/cambiar-pregunta">
+        <div class="card-icon-box">
+          <ion-icon name="person-circle-outline"></ion-icon>
+        </div>
+        <div class="card-content-box">
+          <strong class="card-title">Cambiar pregunta de recuperación</strong>
+          <span class="card-subtitle">Actualizar pregunta y responda.</span>
+        </div>
+        <ion-icon name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+      </div>
+
+      <!-- Método de pago -->
+      <div class="setting-item-card" routerLink="/metodo-pago">
+        <div class="card-icon-box icon-dark">
+          <ion-icon name="card-sharp"></ion-icon>
+        </div>
+        <div class="card-content-box">
+          <strong class="card-title">Método de pago</strong>
+          <span class="card-subtitle">Tarjetas guardadas.</span>
+        </div>
+        <ion-icon name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+      </div>
+
+    </div>
+
+    <!-- Botón Cerrar Sesión -->
+    <div class="logout-wrapper">
+      <button class="btn-logout" routerLink="/login">
+        <ion-icon name="log-out-outline"></ion-icon>
+        <span>Cerrar sesión</span>
+      </button>
+    </div>
+
+  </div>
 </ion-content>

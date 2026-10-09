@@ -1,0 +1,390 @@
+/* Reset global e inyección de fondo */
+ion-content {
+  --background: #faf6ee !important;
+  --color: #2b2118 !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.cart-wrapper {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 16px 16px 30px 16px;
+  box-sizing: border-box;
+  color: #2b2118;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* Encabezado */
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+
+  .btn-back {
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    color: #2b2118;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+
+  .header-title {
+    flex: 1;
+    margin-left: 12px;
+
+    h2 {
+      margin: 0;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #2b2118;
+    }
+
+    span {
+      font-size: 0.75rem;
+      color: #3b3027;
+      font-weight: 700;
+    }
+  }
+
+  .user-avatar {
+    width: 42px;
+    height: 42px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+    ion-icon {
+      font-size: 24px;
+      color: #cccccc;
+    }
+  }
+}
+
+/* Tarjeta Dirección */
+.card-address {
+  background: #ffffff;
+  border: 1.5px solid #8c735d;
+  border-radius: 16px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+
+  .address-details {
+    flex: 1;
+
+    h3 {
+      margin: 0 0 2px 0;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #2b2118;
+    }
+
+    .main-text {
+      margin: 0;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #444444;
+    }
+
+    .sub-text {
+      margin: 0;
+      font-size: 0.75rem;
+      color: #666666;
+    }
+  }
+
+  .edit-btn {
+    font-size: 18px;
+    color: #2b2118;
+    cursor: pointer;
+  }
+}
+
+/* Cajas de Íconos */
+.icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &.gray {
+    background-color: #e8e4dc;
+    ion-icon { color: #2b2118; font-size: 20px; }
+  }
+
+  &.black {
+    background-color: #000000;
+    ion-icon { color: #ffffff; font-size: 20px; }
+  }
+}
+
+/* Encabezados de Sección y Botón Vaciar */
+.section-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.section-heading {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #2b2118;
+
+  &.mt-16 {
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+}
+
+.btn-clear-cart {
+  background: #3d2314;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Tarjeta Producto */
+.card-product {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px 14px;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+
+  .product-thumb {
+    width: 64px;
+    height: 64px;
+    border: 1.5px solid #e2e2e2;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    flex-shrink: 0;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .product-info {
+    flex: 1;
+
+    .product-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      h4 {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 800;
+        color: #2b2118;
+      }
+
+      .delete-btn {
+        font-size: 18px;
+        color: #2b2118;
+        cursor: pointer;
+      }
+    }
+
+    .product-category {
+      display: block;
+      font-size: 0.75rem;
+      color: #666666;
+      margin-top: 2px;
+      margin-bottom: 8px;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .price {
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: #2b2118;
+      }
+
+      .stepper {
+        display: flex;
+        align-items: center;
+        background: #e8e4dc;
+        border-radius: 8px;
+        padding: 2px;
+
+        button {
+          background: transparent;
+          border: none;
+          width: 24px;
+          height: 24px;
+          font-weight: bold;
+          font-size: 0.9rem;
+          color: #2b2118;
+          cursor: pointer;
+
+          &.add {
+            background: #000000;
+            color: #ffffff;
+            border-radius: 6px;
+          }
+        }
+
+        span {
+          padding: 0 10px;
+          font-size: 0.85rem;
+          font-weight: 800;
+          color: #2b2118;
+        }
+      }
+    }
+  }
+}
+
+/* Métodos de Pago */
+.card-payment {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+
+  .payment-details {
+    flex: 1;
+
+    h4 {
+      margin: 0;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #2b2118;
+    }
+
+    p {
+      margin: 2px 0 0 0;
+      font-size: 0.75rem;
+      color: #666666;
+    }
+  }
+
+  .radio-check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1.5px solid #cccccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.active {
+      background-color: #62b1f6;
+      border-color: #62b1f6;
+
+      ion-icon {
+        color: #ffffff;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+/* Resumen de Compra */
+.card-summary {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 18px;
+  margin-bottom: 22px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+
+  h3 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #2b2118;
+  }
+
+  .divider {
+    height: 1px;
+    background-color: #eeeeee;
+    margin: 10px 0 12px 0;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #2b2118;
+    }
+
+    .total-price {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #2b2118;
+    }
+  }
+}
+
+/* Botón Principal */
+.btn-checkout {
+  width: 100%;
+  height: 52px;
+  background-color: #3d2314;
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+
+  ion-icon {
+    font-size: 1.1rem;
+    color: #ffffff;
+  }
+
+  span {
+    color: #ffffff;
+  }
+
+  &:active {
+    opacity: 0.9;
+  }
+}

@@ -1,13 +1,125 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>carrito</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">carrito</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="cart-wrapper">
+
+    <!-- Encabezado -->
+    <div class="header-bar">
+      <button class="btn-back" (click)="regresar()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </button>
+
+      <div class="header-title">
+        <h2>Mi Carrito</h2>
+        <span>{{ productos.length }} artículos reservados</span>
+      </div>
+
+      <div class="user-avatar">
+        <ion-icon name="person-outline"></ion-icon>
+      </div>
+    </div>
+
+    <!-- Dirección de Entrega -->
+    <div class="card-address">
+      <div class="icon-box gray">
+        <ion-icon name="storefront-outline"></ion-icon>
+      </div>
+
+      <div class="address-details">
+        <h3>Dirección de entrega</h3>
+        <p class="main-text">Av. Providencia 1420, Int. 4B</p>
+        <p class="sub-text">Colonia del Valle, Ciudad de México</p>
+      </div>
+
+      <ion-icon name="pencil-outline" class="edit-btn"></ion-icon>
+    </div>
+
+    <!-- Título Sección + Botón Vaciar -->
+    <div class="section-title-row">
+      <h3 class="section-heading">Productos seleccionados</h3>
+      <button class="btn-clear-cart" (click)="vaciarCarrito()">Vaciar carrito</button>
+    </div>
+
+    <!-- Lista de Productos -->
+    @for (producto of productos; track producto.id; let i = $index) {
+      <div class="card-product">
+        <div class="product-thumb">
+          <img [src]="producto.imagen" [alt]="producto.nombre" />
+        </div>
+
+        <div class="product-info">
+          <div class="product-header">
+            <h4>{{ producto.nombre }}</h4>
+            <ion-icon name="trash-outline" class="delete-btn" (click)="eliminarProducto(i)"></ion-icon>
+          </div>
+
+          <span class="product-category">{{ producto.categoria }}</span>
+
+          <div class="product-footer">
+            <span class="price">${{ (producto.precio * producto.cantidad).toFixed(2) }}</span>
+
+            <div class="stepper">
+              <button (click)="decrementarCantidad(producto)">-</button>
+              <span>{{ producto.cantidad }}</span>
+              <button class="add" (click)="incrementarCantidad(producto)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+
+    <!-- Métodos de Pago -->
+    <h3 class="section-heading mt-16">Método de Pago</h3>
+
+    <div 
+      class="card-payment" 
+      [class.selected]="metodoPagoSeleccionado === 'tarjeta'"
+      (click)="seleccionarMetodo('tarjeta')">
+      <div class="icon-box black">
+        <ion-icon name="card-outline"></ion-icon>
+      </div>
+      <div class="payment-details">
+        <h4>Tarjeta Débito / Crédito</h4>
+        <p>Mastercard terminada en **** 4289</p>
+      </div>
+      <div class="radio-check" [class.active]="metodoPagoSeleccionado === 'tarjeta'">
+        @if (metodoPagoSeleccionado === 'tarjeta') {
+          <ion-icon name="checkmark-sharp"></ion-icon>
+        }
+      </div>
+    </div>
+
+    <div 
+      class="card-payment" 
+      [class.selected]="metodoPagoSeleccionado === 'efectivo'"
+      (click)="seleccionarMetodo('efectivo')">
+      <div class="icon-box gray">
+        <ion-icon name="cash-outline"></ion-icon>
+      </div>
+      <div class="payment-details">
+        <h4>Efectivo contra entrega</h4>
+        <p>Paga al recibir en tu puerta</p>
+      </div>
+      <div class="radio-check" [class.active]="metodoPagoSeleccionado === 'efectivo'">
+        @if (metodoPagoSeleccionado === 'efectivo') {
+          <ion-icon name="checkmark-sharp"></ion-icon>
+        }
+      </div>
+    </div>
+
+    <!-- Resumen de Compra -->
+    <div class="card-summary">
+      <h3>Resumen de compra</h3>
+      <div class="divider"></div>
+      <div class="summary-row">
+        <span>Total a pagar</span>
+        <strong class="total-price">${{ obtenerTotal().toFixed(2) }}</strong>
+      </div>
+    </div>
+
+    <!-- Botón Principal Pagar -->
+    <button class="btn-checkout">
+      <ion-icon name="lock-closed-outline"></ion-icon>
+      <span>Confirmar Pedido y Pagar (${{ obtenerTotal().toFixed(2) }})</span>
+    </button>
+
+  </div>
 </ion-content>

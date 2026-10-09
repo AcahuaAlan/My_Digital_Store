@@ -1,19 +1,62 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { 
+  IonHeader, 
+  IonToolbar, 
+  IonButtons, 
+  IonBackButton, 
+  IonTitle, 
+  IonContent, 
+  IonIcon 
+} from '@ionic/angular';
+import { addIcons } from 'ionicons';
+import { arrowBackOutline, pencil, saveOutline, exitOutline, person } from 'ionicons/icons';
 
 @Component({
   selector: 'app-editar-perfil',
   templateUrl: './editar-perfil.page.html',
   styleUrls: ['./editar-perfil.page.scss'],
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonBackButton,
+    IonTitle,
+    IonContent,
+    IonIcon
+  ]
 })
-export class EditarPerfilPage implements OnInit {
+export class EditarPerfilPage {
 
-  constructor() { }
+  nombreCompleto: string = '';
+  nombreUsuario: string = '';
 
-  ngOnInit() {
+  private router = inject(Router);
+
+  constructor() {
+    addIcons({
+      'arrow-back-outline': arrowBackOutline,
+      'pencil': pencil,
+      'save-outline': saveOutline,
+      'exit-outline': exitOutline,
+      'person': person
+    });
+  }
+
+  guardarCambios() {
+    console.log('Guardando cambios:', this.nombreCompleto, this.nombreUsuario);
+
+    this.router.navigate(['/tabs/perfil']);
+  }
+
+  cerrarSesion() {
+    console.log('Cerrando sesión...');
+    this.router.navigate(['/login']); 
   }
 
 }
