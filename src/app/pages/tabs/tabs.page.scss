@@ -1,0 +1,63 @@
+/* 1. Cambia el fondo del contenedor global de los tabs a tu color crema */
+:host,
+ion-tabs {
+  background-color: #fdfbf7 !important;
+}
+
+/* 2. Tu Tab Bar con el diseño intacto */
+ion-tab-bar.custom-tab-bar {
+  --background: #faf6ee;
+  background-color: #faf6ee;
+  border: 1px solid #3b2412;
+  border-bottom: none;
+  height: 65px;
+  padding: 6px 16px 8px 16px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.12);
+
+  /* Asegura que los bordes traseros muestren el tono crema en vez de negro */
+  outline: none;
+  position: relative;
+  z-index: 10;
+}
+
+/* Estilo general de los botones */
+ion-tab-button {
+  --background: transparent;
+  --color: #121212;
+  --color-selected: #121212;
+  --ripple-color: transparent;
+}
+
+/* Envoltorio del icono */
+.tab-icon-wrapper {
+  width: 52px;
+  height: 28px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Iconos */
+ion-tab-button ion-icon {
+  font-size: 20px;
+  color: #3b2412;
+}
+
+/* Píldora de selección activa (Estado Seleccionado) */
+ion-tab-button.tab-selected .tab-icon-wrapper {
+  background-color: #3b2412;
+}
+
+ion-tab-button.tab-selected ion-icon {
+  color: #faf6ee;
+}
+
+/* Etiquetas de texto */
+ion-label {
+  font-size: 0.75rem !important;
+  font-weight: 700;
+  color: #121212;
+  margin-top: 2px;
+}
