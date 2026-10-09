@@ -1,13 +1,50 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>direccion</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="direccion-content">
+  <div class="page-wrapper">
+    <div class="direccion-card-container">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">direccion</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      <!-- Encabezado con flecha de regreso dentro de la tarjeta -->
+      <div class="card-header">
+        <button class="back-btn" (click)="regresar()">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </button>
+        <h2 class="header-title">Dirección de Entrega</h2>
+      </div>
+
+      <!-- Sección Tu Dirección -->
+      <h3 class="section-title">Tu dirección</h3>
+      
+      <div class="address-box">
+        <div class="store-icon-box">
+          <ion-icon name="storefront"></ion-icon>
+        </div>
+        <div class="address-details">
+          <strong class="address-title">Dirección de entrega</strong>
+          <p class="address-line">Av. Providencia 1420, Int. 4B</p>
+          <p class="address-sub">Colonia del Valle, Ciudad de México</p>
+        </div>
+        <div class="address-actions">
+          <button class="action-btn"><ion-icon name="pencil-outline"></ion-icon></button>
+          <button class="action-btn"><ion-icon name="trash-outline"></ion-icon></button>
+        </div>
+      </div>
+
+      <!-- Sección Zona / Mapa -->
+      <h3 class="section-title">Zona</h3>
+      <div class="map-container">
+        <img src="assets/mapa.jpg" alt="Mapa de entrega" class="map-image" />
+      </div>
+
+      <!-- Banner de Aviso -->
+      <div class="info-banner">
+        <div class="info-icon-box">
+          <ion-icon name="shield-checkmark-outline"></ion-icon>
+        </div>
+        <div class="info-text">
+          <strong>Entregas seguras y trazables</strong>
+          <p>Cada paquete incluye precinto artesanal sellado con número de serie único.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </ion-content>

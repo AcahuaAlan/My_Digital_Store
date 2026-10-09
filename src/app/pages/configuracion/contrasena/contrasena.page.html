@@ -1,13 +1,86 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>contrasena</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="password-content">
+  <div class="page-wrapper">
+    <div class="password-card-container">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">contrasena</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      <!-- Encabezado con flecha de regreso -->
+      <div class="card-header">
+        <button class="back-btn" (click)="regresar()">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </button>
+        <h2 class="header-title">Cambio de contraseña</h2>
+      </div>
+
+      <!-- Banner Informativo -->
+      <div class="security-banner">
+        <div class="shield-icon-box">
+          <ion-icon name="shield-outline"></ion-icon>
+        </div>
+        <div class="banner-text">
+          <strong>Protege tu cuenta de My Digital Store</strong>
+          <p>Crea una contraseña segura de al menos 8 caracteres para mantener a salvo tu inventario y datos de ventas.</p>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <div class="form-wrapper">
+
+        <!-- Contraseña actual -->
+        <div class="input-group">
+          <label class="input-label">Contraseña actual</label>
+          <div class="input-box">
+            <input type="password" [(ngModel)]="contrasenaActual" class="field-input" />
+          </div>
+          <div class="forgot-password">
+            <a (click)="olvidasteContrasena()">¿Olvidaste tu contraseña?</a>
+          </div>
+        </div>
+
+        <!-- Nueva contraseña -->
+        <div class="input-group">
+          <label class="input-label">Nueva contraseña</label>
+          <div class="input-box">
+            <input type="password" [(ngModel)]="nuevaContrasena" class="field-input" />
+          </div>
+        </div>
+
+        <!-- Requisitos de contraseña -->
+        <div class="password-requirements">
+          <div class="req-item">
+            <ion-icon name="ellipse-outline"></ion-icon>
+            <span>Mínimo 8 caracteres</span>
+          </div>
+          <div class="req-item">
+            <ion-icon name="ellipse-outline"></ion-icon>
+            <span>Al menos un número (0-9)</span>
+          </div>
+          <div class="req-item">
+            <ion-icon name="ellipse-outline"></ion-icon>
+            <span>Al menos una letra mayúscula (A-Z)</span>
+          </div>
+        </div>
+
+        <!-- Confirmación de contraseña -->
+        <div class="input-group">
+          <label class="input-label">Confirmación de nueva contraseña</label>
+          <div class="input-box">
+            <input type="password" [(ngModel)]="confirmarContrasena" class="field-input" />
+          </div>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="actions-wrapper">
+          <button class="btn-outline-action" (click)="actualizarContrasena()">
+            <ion-icon name="checkmark-outline"></ion-icon>
+            <span>Actualizar contraseña</span>
+          </button>
+
+          <button class="btn-outline-cancel" (click)="regresar()">
+            <span>Cancelar</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
 </ion-content>
