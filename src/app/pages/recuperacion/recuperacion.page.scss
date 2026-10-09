@@ -1,0 +1,131 @@
+/* Fondo claro continuo para la pantalla general */
+ion-content {
+  --background: #faf6ee;
+  display: flex;
+  justify-content: center;
+}
+
+/* Contenedor sin tarjeta ni marco flotante, centrado a 400px */
+.card-container {
+  background-color: #faf6ee;
+  border-radius: 0;
+  padding: 24px 18px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: none;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Estilo del icono superior del candado */
+.icon-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.lock-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #b8860b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.lock-circle ion-icon {
+  font-size: 36px;
+  color: #3b2412;
+}
+
+/* Títulos y Secciones */
+.title-main {
+  color: #3b2412;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 8px 0 12px 0;
+}
+
+.section-title {
+  color: #3b2412;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 16px 0 6px 0;
+  text-align: center;
+}
+
+.field-label {
+  color: #3b2412;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 8px 0 4px 0;
+  text-align: center;
+}
+
+/* Cajas de notas / explicaciones */
+.note-box {
+  border: 1px solid #7d7060;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.75rem;
+  color: #4a3b2c;
+  line-height: 1.3;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+/* Quitar fondos de lista de Ionic */
+ion-list {
+  background: transparent;
+  padding: 0;
+}
+
+/* Campos de entrada estilo borde café */
+.input-item {
+  --background: #faf6ee;
+  --border-color: #5d4a3a;
+  --border-style: solid;
+  --border-width: 1px;
+  --border-radius: 10px;
+  --min-height: 40px;
+  --padding-start: 10px;
+  --highlight-color-focused: #3b2412;
+  margin-bottom: 8px;
+}
+
+ion-input, ion-select {
+  --color: #3b2412;
+  --placeholder-color: #7d7060;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Botones de acción */
+.btn-submit {
+  --background: #3b2412;
+  --background-hover: #2a190c;
+  --background-activated: #2a190c;
+  --color: #ffffff;
+  --border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: none;
+  margin: 18px auto 8px auto;
+  width: 75%;
+}
+
+.btn-cancel {
+  --background: #3b2412;
+  --background-hover: #2a190c;
+  --background-activated: #2a190c;
+  --color: #ffffff;
+  --border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: none;
+  margin: 0 auto 10px auto;
+  width: 60%;
+}

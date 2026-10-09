@@ -1,0 +1,66 @@
+<ion-content class="ion-padding">
+  <div class="card-container">
+    
+    <!-- Ícono del Candado -->
+    <div class="icon-header">
+      <div class="lock-circle">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </div>
+    </div>
+
+    <!-- Título y Subtítulo -->
+    <h2 class="title-main">¿Olvidaste tu contraseña?</h2>
+    
+    <div class="note-box">
+      No te preocupes. Puedes verificar tu identidad respondiendo a tu pregunta de seguridad registrada.
+    </div>
+
+    <ion-list lines="none">
+      <!-- Usuario -->
+      <h3 class="section-title">Usuario o Nombre</h3>
+      <ion-item class="input-item">
+        <ion-input label="" placeholder=""></ion-input>
+      </ion-item>
+
+      <!-- Sección Seguridad -->
+      <h3 class="section-title">Seguridad y Recuperación</h3>
+      
+      <p class="field-label">Pregunta de seguridad para recuperación</p>
+      <ion-item class="input-item">
+        <ion-select label="" placeholder="Selecciona una" interface="popover">
+          <ion-select-option value="mascota">¿Nombre de tu primera mascota?</ion-select-option>
+          <ion-select-option value="escuela">¿Nombre de tu preparatoria?</ion-select-option>
+          <ion-select-option value="color">¿Tu color favorito?</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <p class="field-label">Tu respuesta secreta</p>
+      <ion-item class="input-item">
+        <ion-input label="" placeholder=""></ion-input>
+      </ion-item>
+
+      <!-- Crear nueva contraseña -->
+      <h3 class="section-title">Crear nueva contraseña</h3>
+      
+      <p class="field-label">Contraseña</p>
+      <ion-item class="input-item">
+        <ion-input type="password" placeholder=""></ion-input>
+      </ion-item>
+
+      <p class="field-label">Confirmar contraseña</p>
+      <ion-item class="input-item">
+        <ion-input type="password" placeholder=""></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <!-- Botones de Acción -->
+    <ion-button expand="block" shape="round" class="btn-submit" routerLink="/login">
+      Verificar y Restablecer contraseña
+    </ion-button>
+
+    <ion-button expand="block" shape="round" class="btn-cancel" routerLink="/login">
+      Cancelar
+    </ion-button>
+
+  </div>
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-content class="ion-padding ion-text-center">
+  <div class="card-container">
+    <div class="logo-container">
+      <ion-avatar class="logo-app">
+        <img src="assets/icon/Logo.png" alt="Logo" />
+      </ion-avatar>
+    </div>
+    
+    <h1>Bienvenido a<br>My Digital Store</h1>
+    <p>Tu tienda favorita en tus manos</p>
+
+    <ion-list lines="none">
+      <ion-item class="input-item">
+        <ion-input label="Usuario" labelPlacement="floating" type="text"></ion-input>
+      </ion-item>
+      <ion-item class="input-item">
+        <ion-input label="Contraseña" labelPlacement="floating" type="password"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div class="ion-text-end">
+      <ion-button fill="clear" size="small" class="btn-forgot" routerLink="/recuperacion">
+        ¿Olvidaste tu contraseña?
+      </ion-button>
+    </div>
+
+    <ion-button class="btn-action" expand="block" shape="round" routerLink="/tabs/tienda">
+      Ingresar
+    </ion-button>
+
+    <div class="register-prompt ion-margin-top">
+      <p>¿Aun no tienes cuenta en nuestra tienda?</p>
+      <ion-button class="btn-action" expand="block" shape="round" routerLink="/registro">
+        Crear una cuenta
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

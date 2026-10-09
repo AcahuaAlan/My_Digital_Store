@@ -1,0 +1,103 @@
+/* Fondo claro continuo para la pantalla completa */
+ion-content {
+  --background: #faf6ee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor sin tarjeta ni marco flotante, centrado a 380px */
+.card-container {
+  background-color: #faf6ee;
+  border-radius: 0;
+  padding: 30px 20px;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+/* Ajuste del logo */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.logo-app {
+  width: 90px;
+  height: 90px;
+}
+
+/* Títulos y subtítulos */
+h1 {
+  color: #3d2612;
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin: 10px 0 5px 0;
+  line-height: 1.2;
+}
+
+p {
+  color: #3d2612;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+/* Fondo transparente para la lista Ionic dentro de la tarjeta */
+ion-list {
+  background: transparent;
+  padding: 0;
+}
+
+/* Estilo para los campos de entrada */
+.input-item {
+  --background: #ffffff;
+  --border-color: #8c7b6c;
+  --border-style: solid;
+  --border-width: 1px;
+  --border-radius: 10px;
+  --color: #121212;
+  --highlight-color-focused: #3d2612;
+  margin-bottom: 12px;
+}
+
+/* Estilo del texto/label flotante en ion-input */
+ion-input {
+  --color: #121212;
+  --placeholder-color: #666;
+  color: #3d2612;
+  font-weight: 500;
+  text-align: left;
+}
+
+/* Enlace de recuperación */
+.btn-forgot {
+  --color: #4a90e2;
+  font-size: 0.8rem;
+  text-transform: none;
+  margin-bottom: 10px;
+}
+
+/* Botones con tono café oscuro */
+.btn-action {
+  --background: #3b2412;
+  --background-hover: #2a190c;
+  --background-activated: #2a190c;
+  --color: #ffffff;
+  --border-radius: 12px;
+  font-weight: bold;
+  text-transform: none;
+  margin: 10px auto;
+  width: 80%;
+}
+
+/* Texto de la sección de registro */
+.register-prompt p {
+  color: #121212;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
