@@ -4,7 +4,7 @@
 
       <!-- Encabezado con flecha de regreso dentro de la tarjeta -->
       <div class="card-header">
-        <button class="back-btn" (click)="regresar()">
+        <button type="button" class="back-btn" (click)="regresar()">
           <ion-icon name="arrow-back-outline"></ion-icon>
         </button>
         <h2 class="header-title">Dirección de Entrega</h2>
@@ -12,21 +12,45 @@
 
       <!-- Sección Tu Dirección -->
       <h3 class="section-title">Tu dirección</h3>
-      
-      <div class="address-box">
-        <div class="store-icon-box">
-          <ion-icon name="storefront"></ion-icon>
+
+      @if (direccionData?.calle || direccionData?.colonia) {
+        <div class="address-box">
+          <div class="store-icon-box">
+            <ion-icon name="storefront"></ion-icon>
+          </div>
+          <div class="address-details">
+            <strong class="address-title">Dirección de entrega</strong>
+            <p class="address-line">{{ direccionData.calle || 'Sin calle registrada' }}</p>
+            @if (direccionData.colonia) {
+              <p class="address-sub">{{ direccionData.colonia }}</p>
+            }
+          </div>
+          <div class="address-actions">
+            <button type="button" class="action-btn" (click)="editarDireccion()" aria-label="Editar dirección">
+              <ion-icon name="pencil-outline"></ion-icon>
+            </button>
+            <button type="button" class="action-btn" (click)="eliminarDireccion()" aria-label="Eliminar dirección">
+              <ion-icon name="trash-outline"></ion-icon>
+            </button>
+          </div>
         </div>
-        <div class="address-details">
-          <strong class="address-title">Dirección de entrega</strong>
-          <p class="address-line">Av. Providencia 1420, Int. 4B</p>
-          <p class="address-sub">Colonia del Valle, Ciudad de México</p>
+      } @else {
+        <div class="address-box">
+          <div class="store-icon-box">
+            <ion-icon name="storefront"></ion-icon>
+          </div>
+          <div class="address-details">
+            <strong class="address-title">Dirección de entrega</strong>
+            <p class="address-line">Sin dirección registrada</p>
+            <p class="address-sub">No se encontró dirección en el perfil del usuario</p>
+          </div>
+          <div class="address-actions">
+            <button type="button" class="action-btn" (click)="editarDireccion()" aria-label="Agregar o editar dirección">
+              <ion-icon name="pencil-outline"></ion-icon>
+            </button>
+          </div>
         </div>
-        <div class="address-actions">
-          <button class="action-btn"><ion-icon name="pencil-outline"></ion-icon></button>
-          <button class="action-btn"><ion-icon name="trash-outline"></ion-icon></button>
-        </div>
-      </div>
+      }
 
       <!-- Sección Zona / Mapa -->
       <h3 class="section-title">Zona</h3>

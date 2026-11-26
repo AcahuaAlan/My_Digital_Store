@@ -1,4 +1,4 @@
-<ion-content class="ion-padding">
+<ion-content [fullscreen]="true" class="ion-padding">
   <div class="card-container">
     
     <!-- Encabezado Superior (Logo + Título + Iconos) -->
@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="header-actions">
-        <ion-button fill="clear" class="icon-btn">
+        <ion-button fill="clear" class="icon-btn" (click)="irADireccion()">
           <ion-icon name="location-outline"></ion-icon>
         </ion-button>
         <ion-button fill="clear" class="icon-btn">
@@ -27,11 +27,11 @@
     <h1 class="welcome-title">¡Hola, bienvenido!</h1>
 
     <!-- Selector de Dirección -->
-    <div class="address-selector">
+    <div class="address-selector" (click)="irADireccion()">
       <ion-icon name="location" class="pin-icon"></ion-icon>
       <div class="address-text">
         <span class="label">Entregar en</span>
-        <strong class="value">Av. Reforma 124, Dpto 4B</strong>
+        <strong class="value">{{ direccionEntrega }}</strong>
       </div>
       <ion-icon name="chevron-down-outline" class="arrow-icon"></ion-icon>
     </div>
@@ -39,90 +39,76 @@
     <!-- Buscador -->
     <div class="search-box">
       <ion-icon name="search-outline"></ion-icon>
-      <input type="text" placeholder="Buscar botanas, refrescos ..." />
+      <input
+        type="text"
+        [(ngModel)]="textoBusqueda"
+        placeholder="Buscar botanas, refrescos ..."
+      />
+      @if (textoBusqueda) {
+        <ion-icon
+          name="close-circle-outline"
+          (click)="textoBusqueda = ''"
+          style="cursor: pointer;"
+        ></ion-icon>
+      }
     </div>
 
     <!-- Categorías (Chips con borde) -->
     <div class="categories-scroll">
-      <button class="chip active">Todos</button>
-      <button class="chip">Bebidas</button>
-      <button class="chip">Botanas</button>
-      <button class="chip">Panadería</button>
+      @for (cat of categorias; track cat) {
+        <button
+          type="button"
+          class="chip"
+          [class.active]="categoriaSeleccionada === cat"
+          (click)="seleccionarCategoria(cat)"
+        >
+          {{ cat }}
+        </button>
+      }
     </div>
 
     <!-- Título de Sección -->
     <h3 class="section-title">Populares ahora</h3>
 
-    <!-- Rejilla de Productos -->
-    <ion-grid class="ion-no-padding">
-      <ion-row>
-        
-        <!-- Producto 1: Coca-Cola -->
-        <ion-col size="6" class="pe-1 pb-2">
-          <div class="product-card">
-            <div class="product-img-wrapper">
-              <img src="assets/coca-cola.png" alt="Coca-Cola" />
-            </div>
-            <span class="product-weight">600 ml</span>
-            <h4 class="product-title">Coca-Cola</h4>
-            <p class="product-desc">Refresco refrescante</p>
-            <div class="product-footer">
-              <span class="product-price">$24.00</span>
-              <button class="btn-add">+ Agregar</button>
-            </div>
-          </div>
-        </ion-col>
-
-        <!-- Producto 2: Takis Fuego -->
-        <ion-col size="6" class="ps-1 pb-2">
-          <div class="product-card">
-            <div class="product-img-wrapper">
-              <img src="assets/takis-fuego.png" alt="Takis Fuego" />
-            </div>
-            <span class="product-weight">45 g</span>
-            <h4 class="product-title">Takis Fuego</h4>
-            <p class="product-desc">Botana de maíz picante</p>
-            <div class="product-footer">
-              <span class="product-price">$20.00</span>
-              <button class="btn-add">+ Agregar</button>
-            </div>
-          </div>
-        </ion-col>
-
-        <!-- Producto 3: Pepsi -->
-        <ion-col size="6" class="pe-1 pb-2">
-          <div class="product-card">
-            <div class="product-img-wrapper">
-              <img src="assets/pepsi.png" alt="Pepsi" />
-            </div>
-            <span class="product-weight">600 ml</span>
-            <h4 class="product-title">Pepsi</h4>
-            <p class="product-desc">Refresco de cola</p>
-            <div class="product-footer">
-              <span class="product-price">$22.00</span>
-              <button class="btn-add">+ Agregar</button>
-            </div>
-          </div>
-        </ion-col>
-
-        <!-- Producto 4: Maruchan -->
-        <ion-col size="6" class="ps-1 pb-2">
-          <div class="product-card">
-            <div class="product-img-wrapper">
-              <img src="assets/maruchan.png" alt="Maruchan" />
-            </div>
-            <span class="product-weight">64 g</span>
-            <h4 class="product-title">Maruchan</h4>
-            <p class="product-desc">Sopa instantánea</p>
-            <div class="product-footer">
-              <span class="product-price">$18.00</span>
-              <button class="btn-add">+ Agregar</button>
-            </div>
-          </div>
-        </ion-col>
-
-      </ion-row>
-    </ion-grid>
+    @if (cargandoProductos) {
+      <p>Cargando productos...</p>
+    } @else if (errorProductos) {
+      <p>{{ errorProductos }}</p>
+    } @else if (productosFiltrados.length === 0) {
+      <div class="ion-text-center ion-padding">
+        <p>No se encontraron productos con "{{ textoBusqueda }}".</p>
+        <button type="button" class="btn-add" (click)="limpiarBusqueda()">
+          Mostrar todos
+        </button>
+      </div>
+    } @else {
+      <!-- Rejilla de Productos -->
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          @for (prod of productosFiltrados; track prod.id; let i = $index) {
+            <ion-col size="6" [class]="i % 2 === 0 ? 'pe-1 pb-2' : 'ps-1 pb-2'">
+              <div class="product-card">
+                <div class="product-img-wrapper">
+                  <img [src]="prod.imagen" [alt]="prod.nombre" />
+                </div>
+                <span class="product-weight">{{ prod.categoria }}</span>
+                <h4 class="product-title">{{ prod.nombre }}</h4>
+                <div class="product-footer">
+                  <span class="product-price">${{ prod.precio | number:'1.2-2' }}</span>
+                  <button
+                    type="button"
+                    class="btn-add"
+                    (click)="agregarAlCarrito({ id: prod.id, nombre: prod.nombre, categoria: prod.categoria, precio: prod.precio, cantidad: 1, imagen: prod.imagen })"
+                  >
+                    + Agregar
+                  </button>
+                </div>
+              </div>
+            </ion-col>
+          }
+        </ion-row>
+      </ion-grid>
+    }
 
   </div>
 </ion-content>

@@ -4,44 +4,61 @@
 
       <!-- Encabezado -->
       <div class="card-header">
-        <button class="back-btn" (click)="regresar()">
+        <button type="button" class="back-btn" (click)="regresar()">
           <ion-icon name="arrow-back-outline"></ion-icon>
         </button>
         <h2 class="header-title">Método de pago</h2>
       </div>
 
       <!-- Sección Tarjeta Registrada -->
-      <h3 class="section-title">Tarjeta de registrada</h3>
-      
-      <div class="card-item-box">
-        <div class="card-brand-logo">
-          <!-- Texto formateado estilo Visa o puedes usar una imagen -->
-          <span class="visa-text">VISA</span>
+      <h3 class="section-title">Tarjeta registrada</h3>
+
+      @if (tarjetaRegistrada) {
+        <div class="card-item-box" (click)="seleccionarTarjeta()">
+          <div class="card-brand-logo">
+            <span class="visa-text">{{ tarjetaRegistrada.marca }}</span>
+          </div>
+          <div class="card-details">
+            <strong class="card-name">{{ tarjetaRegistrada.nombre }}</strong>
+            <span class="card-number">Terminada en •••• {{ tarjetaRegistrada.ultimos4 }}</span>
+          </div>
+          <div class="card-actions">
+            <button
+              type="button"
+              class="action-btn"
+              (click)="eliminarTarjeta($event)"
+              aria-label="Eliminar tarjeta"
+            >
+              <ion-icon name="trash-outline"></ion-icon>
+            </button>
+          </div>
         </div>
-        <div class="card-details">
-          <strong class="card-name">Visa Débito</strong>
-          <span class="card-number">Terminada en •••• 1094</span>
+      } @else {
+        <div class="empty-card-box">
+          <span>No tienes una tarjeta registrada.</span>
         </div>
-        <div class="card-actions">
-          <button class="action-btn"><ion-icon name="pencil-outline"></ion-icon></button>
-          <button class="action-btn"><ion-icon name="trash-outline"></ion-icon></button>
+      }
+
+      <!-- Botón Agregar tarjeta -->
+      <button type="button" class="add-card-btn" (click)="abrirAgregarTarjeta()">
+        <div class="add-card-left">
+          <ion-icon name="card-outline" class="add-card-icon"></ion-icon>
+          <span class="add-card-label">Agregar tarjeta</span>
         </div>
-      </div>
+        <ion-icon name="add-circle-outline" class="add-card-plus"></ion-icon>
+      </button>
 
       <!-- Sección Otros Métodos de Pago -->
       <span class="sub-heading">OTROS MÉTODOS DE PAGO</span>
 
       <!-- Opción Efectivo contra entrega -->
-      <div class="payment-option-card">
+      <div class="payment-option-card" (click)="metodoSeleccionado = 'efectivo'">
         <div class="option-icon-box">
           <ion-icon name="cash-outline"></ion-icon>
         </div>
         <div class="option-details">
           <strong class="option-title">Efectivo contra entrega</strong>
           <span class="option-sub">Paga al recibir en tu puerta</span>
-        </div>
-        <div class="option-radio">
-          <input type="radio" name="metodoPago" value="efectivo" [(ngModel)]="metodoSeleccionado" />
         </div>
       </div>
 
@@ -58,12 +75,12 @@
 
       <!-- Botones de Acción -->
       <div class="actions-wrapper">
-        <button class="btn-outline-action" (click)="guardar()">
+        <button type="button" class="btn-outline-action" (click)="guardar()">
           <ion-icon name="save-outline"></ion-icon>
           <span>Guardar</span>
         </button>
 
-        <button class="btn-outline-cancel" (click)="regresar()">
+        <button type="button" class="btn-outline-cancel" (click)="regresar()">
           <span>Cancelar</span>
         </button>
       </div>

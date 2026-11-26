@@ -1,9 +1,9 @@
-<ion-content class="ion-padding">
+<ion-content [fullscreen]="true" class="ion-padding">
   <div class="profile-card-container">
 
-    <!-- Header con botón de regresar -->
+    <!-- Header con botón de regresar (Diseño original) -->
     <div class="header-bar">
-      <ion-button fill="clear" class="back-btn">
+      <ion-button fill="clear" class="back-btn" (click)="goBackTienda()">
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
       <h1 class="page-title">Configuración y cliente</h1>
@@ -12,8 +12,8 @@
     <!-- Sección Mi Perfil -->
     <div class="profile-card header-profile-card" routerLink="/editar-perfil">
       <div class="card-left">
-        <strong class="card-title">Mi perfil</strong>
-        <span class="card-subtitle">Editar información</span>
+        <strong class="card-title">{{ userProfile?.nombre || 'Mi perfil' }}</strong>
+        <span class="card-subtitle">{{ userProfile?.email || 'Editar información' }}</span>
       </div>
       <div class="card-right">
         <span class="action-text">Ver perfil</span>
@@ -34,7 +34,7 @@
         </div>
         <div class="card-content-box">
           <strong class="card-title">Dirección de entrega</strong>
-          <span class="card-subtitle">Administrar dirección de envió.</span>
+          <span class="card-subtitle">Administrar dirección de envío.</span>
         </div>
         <ion-icon name="chevron-forward-outline" class="chevron-icon"></ion-icon>
       </div> 
@@ -58,19 +58,31 @@
         </div>
         <div class="card-content-box">
           <strong class="card-title">Cambiar pregunta de recuperación</strong>
-          <span class="card-subtitle">Actualizar pregunta y responda.</span>
+          <span class="card-subtitle">Actualizar pregunta y respuesta.</span>
         </div>
         <ion-icon name="chevron-forward-outline" class="chevron-icon"></ion-icon>
       </div>
 
       <!-- Método de pago -->
       <div class="setting-item-card" routerLink="/metodo-pago">
-        <div class="card-icon-box icon-dark">
-          <ion-icon name="card-sharp"></ion-icon>
+        <div class="card-icon-box">
+          <ion-icon name="card-outline"></ion-icon>
         </div>
         <div class="card-content-box">
           <strong class="card-title">Método de pago</strong>
           <span class="card-subtitle">Tarjetas guardadas.</span>
+        </div>
+        <ion-icon name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+      </div>
+
+      <!-- Historial de compras -->
+      <div class="setting-item-card" routerLink="/historial">
+        <div class="card-icon-box">
+          <ion-icon name="list-outline"></ion-icon>
+        </div>
+        <div class="card-content-box">
+          <strong class="card-title">Historial de compras</strong>
+          <span class="card-subtitle">Pedidos anteriores.</span>
         </div>
         <ion-icon name="chevron-forward-outline" class="chevron-icon"></ion-icon>
       </div>

@@ -65,4 +65,22 @@ export const routes: Routes = [
     path: 'cambiar-pregunta',
     loadComponent: () => import('./pages/configuracion/cambiar-pregunta/cambiar-pregunta.page').then( m => m.CambiarPreguntaPage)
   },
+  {
+    path: 'historial',
+    loadComponent: () => import('./pages/configuracion/historial/historial.page').then( m => m.HistorialPage)
+  },
+  {
+    path: 'agregar-tarjeta',
+    loadComponent: () => import('./pages/configuracion/agregar-tarjeta/agregar-tarjeta.page').then( m => m.AgregarTarjetaPage)
+  },
+  {
+    path: 'editar-direccion',
+    loadComponent: () => import('./pages/configuracion/editar-direccion/editar-direccion.page').then( m => m.EditarDireccionPage)
+  },
+  {
+    path: 'gestion-productos',
+    loadComponent: () =>
+    import('./pages/gestion-productos/gestion-productos.page').then((m) => m.GestionProductosPage),
+  },
+
 ];

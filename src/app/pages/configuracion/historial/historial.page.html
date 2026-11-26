@@ -1,0 +1,105 @@
+<ion-content [fullscreen]="true" class="history-content">
+  <div class="page-wrapper">
+    <div class="history-container">
+
+      <!-- Header con botón de regresar -->
+      <div class="card-header">
+        <button type="button" class="back-btn" (click)="goBack()">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </button>
+        <h2 class="header-title">Historial de compras</h2>
+      </div>
+
+      <!-- Buscador -->
+      <div class="search-box">
+        <ion-icon name="search-outline" class="search-icon"></ion-icon>
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Buscar por producto o fecha..."
+          [(ngModel)]="searchText"
+        />
+      </div>
+
+      <!-- Tarjeta de mes -->
+      <div class="month-card">
+        <div class="month-icon-box">
+          <ion-icon name="calendar-outline"></ion-icon>
+        </div>
+        <span class="month-title">Historial de Octubre</span>
+      </div>
+
+      <!-- Título de sección -->
+      <h3 class="section-title">Detalle de compras</h3>
+
+      @if (filteredOrders.length === 0) {
+        <div class="empty-state">
+          <p>No hay compras registradas.</p>
+        </div>
+      } @else {
+        <div class="orders-list">
+          @for (order of filteredOrders; track order.id) {
+            <div class="order-card">
+
+              <!-- Caja superior de productos -->
+              <div class="items-box">
+                <div class="bag-badge">
+                  <ion-icon name="bag-handle-outline"></ion-icon>
+                </div>
+
+                <div class="items-table">
+                  <div class="items-header">
+                    <span>PRODUCTO</span>
+                    <span>CANTIDAD</span>
+                  </div>
+
+                  @for (item of order.items; track item.id) {
+                    <div class="item-row">
+                      <span class="item-name">{{ item.nombre }}</span>
+                      <span class="item-qty">{{ item.cantidad }}</span>
+                    </div>
+                  }
+                </div>
+              </div>
+
+              <!-- Fecha y total -->
+              <div class="order-meta-row">
+                <div class="date-info">
+                  <ion-icon name="time-outline"></ion-icon>
+                  <span>{{ order.date }}</span>
+                </div>
+                <div class="total-info">
+                  <strong class="total-amount">${{ order.total.toFixed(2) }}</strong>
+                  <span class="currency-label">MXN</span>
+                </div>
+              </div>
+
+              <div class="divider"></div>
+
+              <!-- Método de pago y botón Repetir -->
+              <div class="payment-label">MÉTODO DE PAGO</div>
+              <div class="order-footer-row">
+                <div class="payment-info">
+                  @if (order.paymentType === 'card') {
+                    <ion-icon name="card-outline"></ion-icon>
+                    <span>•••• {{ order.cardLast4 }}</span>
+                  } @else {
+                    <ion-icon name="cash-outline"></ion-icon>
+                    <span>Efectivo</span>
+                  }
+                </div>
+
+                <button type="button" class="btn-repeat" (click)="repeatOrder(order)">
+                  <ion-icon name="refresh-outline"></ion-icon>
+                  <span>Repetir</span>
+                </button>
+              </div>
+
+            </div>
+          }
+        </div>
+      }
+
+    </div>
+  </div>
+</ion-content> 

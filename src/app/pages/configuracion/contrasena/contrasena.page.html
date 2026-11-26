@@ -4,7 +4,7 @@
 
       <!-- Encabezado con flecha de regreso -->
       <div class="card-header">
-        <button class="back-btn" (click)="regresar()">
+        <button type="button" class="back-btn" (click)="regresar()">
           <ion-icon name="arrow-back-outline"></ion-icon>
         </button>
         <h2 class="header-title">Cambio de contraseña</h2>
@@ -28,7 +28,12 @@
         <div class="input-group">
           <label class="input-label">Contraseña actual</label>
           <div class="input-box">
-            <input type="password" [(ngModel)]="contrasenaActual" class="field-input" />
+            <input
+              type="password"
+              name="contrasenaActual"
+              [(ngModel)]="contrasenaActual"
+              class="field-input"
+            />
           </div>
           <div class="forgot-password">
             <a (click)="olvidasteContrasena()">¿Olvidaste tu contraseña?</a>
@@ -39,22 +44,27 @@
         <div class="input-group">
           <label class="input-label">Nueva contraseña</label>
           <div class="input-box">
-            <input type="password" [(ngModel)]="nuevaContrasena" class="field-input" />
+            <input
+              type="password"
+              name="nuevaContrasena"
+              [(ngModel)]="nuevaContrasena"
+              class="field-input"
+            />
           </div>
         </div>
 
         <!-- Requisitos de contraseña -->
         <div class="password-requirements">
           <div class="req-item">
-            <ion-icon name="ellipse-outline"></ion-icon>
+            <ion-icon [name]="tieneMinimo8 ? 'checkmark-circle-outline' : 'ellipse-outline'"></ion-icon>
             <span>Mínimo 8 caracteres</span>
           </div>
           <div class="req-item">
-            <ion-icon name="ellipse-outline"></ion-icon>
+            <ion-icon [name]="tieneNumero ? 'checkmark-circle-outline' : 'ellipse-outline'"></ion-icon>
             <span>Al menos un número (0-9)</span>
           </div>
           <div class="req-item">
-            <ion-icon name="ellipse-outline"></ion-icon>
+            <ion-icon [name]="tieneMayuscula ? 'checkmark-circle-outline' : 'ellipse-outline'"></ion-icon>
             <span>Al menos una letra mayúscula (A-Z)</span>
           </div>
         </div>
@@ -63,18 +73,35 @@
         <div class="input-group">
           <label class="input-label">Confirmación de nueva contraseña</label>
           <div class="input-box">
-            <input type="password" [(ngModel)]="confirmarContrasena" class="field-input" />
+            <input
+              type="password"
+              name="confirmarContrasena"
+              [(ngModel)]="confirmarContrasena"
+              class="field-input"
+            />
           </div>
         </div>
 
+        @if (mensajeError) {
+          <p style="color: #9b1c1c; font-size: 0.8rem; font-weight: 600; margin: 0 0 10px 0;">
+            {{ mensajeError }}
+          </p>
+        }
+
+        @if (mensajeExito) {
+          <p style="color: #1e5631; font-size: 0.8rem; font-weight: 700; margin: 0 0 10px 0;">
+            {{ mensajeExito }}
+          </p>
+        }
+
         <!-- Botones de Acción -->
         <div class="actions-wrapper">
-          <button class="btn-outline-action" (click)="actualizarContrasena()">
+          <button type="button" class="btn-outline-action" (click)="actualizarContrasena()">
             <ion-icon name="checkmark-outline"></ion-icon>
             <span>Actualizar contraseña</span>
           </button>
 
-          <button class="btn-outline-cancel" (click)="regresar()">
+          <button type="button" class="btn-outline-cancel" (click)="regresar()">
             <span>Cancelar</span>
           </button>
         </div>

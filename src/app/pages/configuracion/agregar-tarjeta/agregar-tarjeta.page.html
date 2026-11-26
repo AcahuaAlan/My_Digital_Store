@@ -1,0 +1,136 @@
+<ion-content class="card-form-content">
+  <div class="page-wrapper">
+    <div class="card-form-container">
+
+      <!-- Encabezado superior -->
+      <div class="top-header">
+        <button type="button" class="back-btn" (click)="regresar()" aria-label="Regresar">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </button>
+
+        <div class="header-texts">
+          <h2 class="header-title">Agregar nueva tarjeta</h2>
+          <p class="header-subtitle">Agrega tus tarjetas de débito o crédito</p>
+        </div>
+
+        <div class="top-right-badge">
+          <ion-icon name="card-outline"></ion-icon>
+        </div>
+      </div>
+
+      <!-- Tarjeta blanca del formulario -->
+      <div class="form-card">
+        <div class="form-card-header">
+          <div class="form-card-title-group">
+            <ion-icon name="card-outline" class="brown-card-icon"></ion-icon>
+            <h3 class="form-card-title">Agregar nueva tarjeta</h3>
+          </div>
+          <span class="type-pill">Débito /<br />Crédito</span>
+        </div>
+
+        <!-- Nombre en la tarjeta -->
+        <div class="input-group">
+          <label class="input-label">Nombre en la tarjeta</label>
+          <div class="input-box">
+            <input
+              type="text"
+              name="nombreEnTarjeta"
+              [(ngModel)]="nombreEnTarjeta"
+              placeholder="Ej. Juan Pérez"
+              class="field-input"
+            />
+            <ion-icon name="person-outline" class="right-icon"></ion-icon>
+          </div>
+        </div>
+
+        <!-- Número de tarjeta -->
+        <div class="input-group">
+          <label class="input-label">Número de tarjeta</label>
+          <div class="input-box">
+            <input
+              type="text"
+              inputmode="numeric"
+              name="numeroTarjeta"
+              [(ngModel)]="numeroTarjeta"
+              (ngModelChange)="formatearNumeroTarjeta($event)"
+              placeholder="4000 1234 5678 9010"
+              maxlength="19"
+              class="field-input"
+            />
+            <ion-icon name="card-outline" class="right-icon"></ion-icon>
+          </div>
+        </div>
+
+        <!-- Vencimiento y Código CVV -->
+        <div class="row-two-cols">
+          <div class="input-group">
+            <div class="label-row">
+              <label class="input-label">Vencimiento</label>
+            </div>
+            <div class="input-box">
+              <input
+                type="text"
+                inputmode="numeric"
+                name="vencimiento"
+                [(ngModel)]="vencimiento"
+                (ngModelChange)="formatearVencimiento($event)"
+                placeholder="MM/AA"
+                maxlength="5"
+                class="field-input"
+              />
+              <ion-icon name="calendar-outline" class="right-icon"></ion-icon>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <div class="label-row">
+              <label class="input-label">Código CVV</label>
+              <ion-icon
+                name="information-circle-outline"
+                class="info-icon"
+                (click)="toggleCvvInfo()"
+              ></ion-icon>
+            </div>
+            <div class="input-box">
+              <input
+                type="password"
+                inputmode="numeric"
+                name="cvv"
+                [(ngModel)]="cvv"
+                placeholder="•••"
+                maxlength="4"
+                class="field-input"
+              />
+              <ion-icon name="lock-closed-outline" class="right-icon"></ion-icon>
+            </div>
+          </div>
+        </div>
+
+        @if (mostrarAyudaCvv) {
+          <div class="cvv-help-note">
+            El código CVV es el número de seguridad de 3 o 4 dígitos al reverso o frente de tu tarjeta.
+          </div>
+        }
+
+        @if (mensajeError) {
+          <div class="alert-error">
+            {{ mensajeError }}
+          </div>
+        }
+      </div>
+
+      <!-- Botones Guardar y Cancelar -->
+      <div class="actions-wrapper">
+        <button type="button" class="btn-primary-brown" (click)="guardarTarjeta()">
+          <ion-icon name="save-outline"></ion-icon>
+          <span>Guardar</span>
+        </button>
+
+        <button type="button" class="btn-secondary-brown" (click)="regresar()">
+          <span>Cancelar</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</ion-content> 

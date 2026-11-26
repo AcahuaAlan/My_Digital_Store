@@ -113,3 +113,10 @@ ion-input::part(label), ion-select::part(label) {
   margin: 20px auto 10px auto;
   width: 75%;
 }
+
+ion-select.select-visible {
+  --color: #1f1b18;
+  --placeholder-color: #1f1b18;
+  --placeholder-opacity: 0.7;
+  color: #1f1b18;
+}

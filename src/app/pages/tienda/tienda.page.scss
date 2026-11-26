@@ -241,3 +241,30 @@ ion-content {
 .pe-1 { padding-right: 4px; }
 .ps-1 { padding-left: 4px; }
 .pb-2 { padding-bottom: 8px; }
+
+.categories-scroll {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding-bottom: 6px;
+
+  scrollbar-width: thin;
+  scrollbar-color: #c7b49e transparent;
+}
+
+.categories-scroll::-webkit-scrollbar {
+  height: 5px;
+}
+
+.categories-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.categories-scroll::-webkit-scrollbar-thumb {
+  background-color: #c7b49e;
+  border-radius: 999px;
+}

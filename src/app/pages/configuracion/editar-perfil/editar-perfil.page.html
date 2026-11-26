@@ -4,7 +4,7 @@
 
       <!-- Encabezado con flecha dentro de la tarjeta -->
       <div class="card-header">
-        <button class="back-btn" (click)="guardarCambios()">
+        <button type="button" class="back-btn" (click)="regresar()">
           <ion-icon name="arrow-back-outline"></ion-icon>
         </button>
         <h2 class="header-title">Mi perfil</h2>
@@ -19,8 +19,8 @@
 
       <!-- Datos de Usuario -->
       <div class="user-info">
-        <h2 class="user-name">Nombre</h2>
-        <h3 class="user-role">Usuario</h3>
+        <h2 class="user-name">{{ nombreCompleto.trim() || 'Usuario' }}</h2>
+        <h3 class="user-role">{{ nombreUsuario.trim() || 'usuario@example.com' }}</h3>
         <h4 class="section-heading">Información Personal</h4>
       </div>
 
@@ -29,7 +29,13 @@
         <div class="input-group">
           <label class="input-label">Nombre completo</label>
           <div class="input-box">
-            <input type="text" [(ngModel)]="nombreCompleto" class="field-input" />
+            <input
+              type="text"
+              name="nombreCompleto"
+              [(ngModel)]="nombreCompleto"
+              placeholder="Escribe tu nombre completo"
+              class="field-input"
+            />
             <ion-icon name="pencil" class="pencil-icon"></ion-icon>
           </div>
         </div>
@@ -37,19 +43,31 @@
         <div class="input-group">
           <label class="input-label">Nombre de usuario</label>
           <div class="input-box">
-            <input type="text" [(ngModel)]="nombreUsuario" class="field-input" />
+            <input
+              type="text"
+              name="nombreUsuario"
+              [(ngModel)]="nombreUsuario"
+              placeholder="Escribe tu nombre de usuario o correo"
+              class="field-input"
+            />
             <ion-icon name="pencil" class="pencil-icon"></ion-icon>
           </div>
         </div>
 
+        @if (mensajeError) {
+          <div style="background-color: #fde8e8; border: 1px solid #f8b4b4; color: #9b1c1c; border-radius: 8px; padding: 8px 12px; font-size: 0.8rem; font-weight: 600; margin-bottom: 12px;">
+            {{ mensajeError }}
+          </div>
+        }
+
         <!-- Botones de Acción -->
         <div class="actions-wrapper">
-          <button class="btn-primary-brown" (click)="guardarCambios()">
+          <button type="button" class="btn-primary-brown" (click)="guardarCambios()">
             <ion-icon name="save-outline"></ion-icon>
             <span>Guardar cambios</span>
           </button>
 
-          <button class="btn-primary-brown" (click)="cerrarSesion()">
+          <button type="button" class="btn-primary-brown" (click)="cerrarSesion()">
             <ion-icon name="exit-outline"></ion-icon>
             <span>Cerrar sesión</span>
           </button>
@@ -58,4 +76,12 @@
 
     </div>
   </div>
+
+  <ion-alert
+    [isOpen]="alertaAbierta"
+    [header]="alertaHeader"
+    [message]="alertaMensaje"
+    [buttons]="alertaButtons"
+    (didDismiss)="onAlertaDismiss()"
+  ></ion-alert>
 </ion-content>

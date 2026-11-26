@@ -1,9 +1,9 @@
-<ion-content class="ion-padding ion-text-center">
+<ion-content [fullscreen]="true" class="ion-padding ion-text-center">
   <div class="card-container">
     <div class="logo-container">
       <ion-avatar class="logo-app">
         <img src="assets/icon/Logo.png" alt="Logo" />
-      </ion-avatar>
+      </ion-avatar> 
     </div>
     
     <h1>Bienvenido a<br>My Digital Store</h1>
@@ -11,10 +11,23 @@
 
     <ion-list lines="none">
       <ion-item class="input-item">
-        <ion-input label="Usuario" labelPlacement="floating" type="text"></ion-input>
+        <ion-input 
+          label="Usuario" 
+          labelPlacement="floating" 
+          type="text" 
+          name="username" 
+          [(ngModel)]="username">
+        </ion-input>
       </ion-item>
+      
       <ion-item class="input-item">
-        <ion-input label="Contraseña" labelPlacement="floating" type="password"></ion-input>
+        <ion-input 
+          label="Contraseña" 
+          labelPlacement="floating" 
+          type="password" 
+          name="password" 
+          [(ngModel)]="password">
+        </ion-input>
       </ion-item>
     </ion-list>
 
@@ -24,12 +37,12 @@
       </ion-button>
     </div>
 
-    <ion-button class="btn-action" expand="block" shape="round" routerLink="/tabs/tienda">
-      Ingresar
-    </ion-button>
+<ion-button class="btn-action" expand="block" shape="round" (click)="onLogin()" [disabled]="!username || !password">
+  Ingresar
+</ion-button>
 
     <div class="register-prompt ion-margin-top">
-      <p>¿Aun no tienes cuenta en nuestra tienda?</p>
+      <p>¿Aún no tienes cuenta en nuestra tienda?</p>
       <ion-button class="btn-action" expand="block" shape="round" routerLink="/registro">
         Crear una cuenta
       </ion-button>

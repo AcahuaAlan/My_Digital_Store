@@ -1,0 +1,93 @@
+<ion-content [fullscreen]="true" class="edit-address-content">
+  <div class="page-wrapper">
+    <div class="edit-address-container">
+
+      <!-- Encabezado superior -->
+      <div class="top-header">
+        <button type="button" class="back-btn" (click)="regresar()" aria-label="Regresar">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </button>
+
+        <div class="header-texts">
+          <h2 class="header-title">Dirección de Entrega</h2>
+          <p class="header-subtitle">Modifica tu dirección de entrega</p>
+        </div>
+
+        <div class="top-right-badge">
+          <ion-icon name="location-outline"></ion-icon>
+        </div>
+      </div>
+
+      <!-- Tarjeta blanca DATOS DEL DOMICILIO -->
+      <div class="form-card">
+        <div class="form-card-header">
+          <span class="section-eyebrow">DATOS DEL DOMICILIO</span>
+        </div>
+
+        <!-- Calle y Número -->
+        <div class="input-group">
+          <label class="input-label">Calle y Número</label>
+          <div class="input-box">
+            <input
+              type="text"
+              name="calleNumero"
+              [(ngModel)]="calleNumero"
+              placeholder="Ej. Av. Independencia #418, Depto. 302"
+              class="field-input"
+            />
+            <ion-icon name="home-outline" class="right-icon"></ion-icon>
+          </div>
+        </div>
+
+        <!-- Colonia / Barrio -->
+        <div class="input-group">
+          <label class="input-label">Colonia / Barrio</label>
+          <div class="input-box">
+            <input
+              type="text"
+              name="coloniaBarrio"
+              [(ngModel)]="coloniaBarrio"
+              placeholder="Ej. Centro Histórico"
+              class="field-input"
+            />
+            <ion-icon name="map-outline" class="right-icon"></ion-icon>
+          </div>
+        </div>
+
+        <!-- Ciudad / Municipio -->
+        <div class="input-group">
+          <label class="input-label">Ciudad / Municipio</label>
+          <div class="input-box">
+            <input
+              type="text"
+              name="ciudadMunicipio"
+              [(ngModel)]="ciudadMunicipio"
+              placeholder="Ej. Orizaba, Ver."
+              class="field-input"
+            />
+            <ion-icon name="business-outline" class="right-icon"></ion-icon>
+          </div>
+        </div>
+
+        @if (mensajeError) {
+          <div class="alert-error">
+            {{ mensajeError }}
+          </div>
+        }
+      </div>
+
+      <!-- Botones Guardar y Cancelar -->
+      <div class="actions-wrapper">
+        <button type="button" class="btn-primary-brown" (click)="guardarDireccion()">
+          <ion-icon name="save-outline"></ion-icon>
+          <span>Guardar</span>
+        </button>
+
+        <button type="button" class="btn-secondary-brown" (click)="regresar()">
+          <span>Cancelar</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</ion-content>
